@@ -45,11 +45,11 @@ namespace DatingApp.API.Controllers
 
             return StatusCode(201);
         }
-
+        
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]UserForLoginDto userForLoginDto)
         {
-            throw new Exception("Computer says no");
+            //throw new Exception("Computer says no");
             var UserFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
             if (UserFromRepo == null)
                 return Unauthorized();
